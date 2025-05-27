@@ -24,25 +24,16 @@ var et,it;class rt extends m{constructor(){super(...arguments),this.renderOption
              <div class = "active-button" ${c?" disabled ":""} @click="${t=>this._toggleActive(t)}" data-entity="${x}" data-current-state="${$}">
                 <span class="color" style="color:${"on"===$?E:C};"><ha-icon icon="${y}" /></span>
              </div>
-        `:D`&nbsp;`;l?u.push(D`
-                <div class = "fader" id = "fader_${d.entity_id}">
-                  <div class="range-holder" style="--fader-height: ${i};--fader-width: ${e};">
-                      <input type="range" class = "${"off"===$?"fader-inactive":"fader-active"} ${c?"fader-unavailable":""}" id = "fader_range_${d.entity_id}" style="--fader-width: ${e};--fader-height: ${i}; --fader-border-radius: ${t};--fader-color:${"on"===$?E:C};--fader-thumb-color:${k};--fader-track-color:${S};--fader-track-inactive-color:${C};" .value="${Math.round((g-v)/(f-v)*100)}" @input=${t=>this._setFaderLevel(h,t.target.value)}>
-                  </div>
-                  <div class = "fader-name">${_}</div>
-                  <div class = "fader-value">${"on"===$||a?o?w:A?$t(this.hass.localize,A,this.hass.language):b:D`<br>`}</div>
-                  <div class = "active-button-holder ${c?"button-disabled":""}">${N}</div>
+        `:D`&nbsp;`,T=`${"off"===$?"fader-inactive":"fader-active"}${c?" fader-unavailable":""}`,P="fader_range_"+d.entity_id;let U=`--fader-width: ${e}; --fader-height: ${i}; --fader-border-radius: ${t}; `;U+=`--fader-color: ${"on"===$?E:C}; `,U+=`--fader-thumb-color: ${k}; --fader-track-color: ${S}; --fader-track-inactive-color: ${C};`;const H=Math.round((g-v)/(f-v)*100);let M=D`<input type="range" class="${T}" id="${P}" style="${U}" .value="${H}" @change=${t=>this._setFaderLevel(h,t.target.value)}>`;l&&(M=D`<input type="range" class="${T}" id="${P}" style="${U}" .value="${H}" @input=${t=>this._setFaderLevel(h,t.target.value)}>`),u.push(D`
+            <div class = "fader" id = "fader_${d.entity_id}">
+                <div class="range-holder" style="--fader-height: ${i};--fader-width: ${e};">
+                    ${M}
                 </div>
-            `):u.push(D`
-                <div class = "fader" id = "fader_${d.entity_id}">
-                  <div class="range-holder" style="--fader-height: ${i};--fader-width: ${e};">
-                      <input type="range" class = "${"off"===$?"fader-inactive":"fader-active"} ${c?"fader-unavailable":""}" id = "fader_range_${d.entity_id}" style="--fader-width: ${e};--fader-height: ${i}; --fader-border-radius: ${t};--fader-color:${"on"===$?E:C};--fader-thumb-color:${k};--fader-track-color:${S};--fader-track-inactive-color:${C};" .value="${Math.round((g-v)/(f-v)*100)}" @change=${t=>this._setFaderLevel(h,t.target.value)}>
-                  </div>
-                  <div class = "fader-name">${_}</div>
-                  <div class = "fader-value">${"on"===$||a?o?w:A?$t(this.hass.localize,A,this.hass.language):b:D`<br>`}</div>
-                  <div class = "active-button-holder ${c?"button-disabled":""}">${N}</div>
-                </div>
-            `)}let p=c?D`<h1 class="card-header"><div class = "name">${c}</div></div>`:"",f=h?D`<p class = "mixer-description">${h}</p>`:"";const v=D`
+                <div class = "fader-name">${_}</div>
+                <div class = "fader-value">${"on"===$||a?o?w:A?$t(this.hass.localize,A,this.hass.language):b:D`<br>`}</div>
+                <div class = "active-button-holder ${c?"button-disabled":""}">${N}</div>
+            </div>
+        `)}let p=c?D`<h1 class="card-header"><div class = "name">${c}</div></div>`:"",f=h?D`<p class = "mixer-description">${h}</p>`:"";const v=D`
      ${p}
      ${f}
       <div>
